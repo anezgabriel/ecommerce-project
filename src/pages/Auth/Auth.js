@@ -1,7 +1,7 @@
 import React from 'react';
-import './AuthPage.styles.scss';
-import SignIn from '../../components/SignIn/SignIn';
-import SignUp from '../../components/SignUp/SignUp';
+import './Auth.styles.scss';
+import SignIn from '../../components/SignIn';
+import SignUp from '../../components/SignUp';
 
 function AuthPage() {
   return (

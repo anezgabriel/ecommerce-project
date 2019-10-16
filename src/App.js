@@ -2,10 +2,19 @@ import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './App.css';
+
+// LAYOUT
+
 import Header from './components/Header';
-import AuthPage from './pages/AuthPage';
-import HomePage from './pages/HomePage';
-import ShopPage from './pages/ShopPage';
+
+// PAGES
+
+import AuthPage from './pages/Auth';
+import HomePage from './pages/Home';
+import ShopPage from './pages/Shop';
+import CheckoutPage from './pages/Checkout';
+
+// REDUX
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { setCurrentUser } from './redux/user/userActions';
@@ -45,6 +54,7 @@ class App extends React.Component {
         <Switch>
           <Route path="/" exact component={HomePage} />
           <Route path="/shop" exact component={ShopPage} />
+          <Route path="/checkout" exact component={CheckoutPage} />
           <Route
             exact
             path="/auth"
