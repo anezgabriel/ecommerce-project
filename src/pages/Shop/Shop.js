@@ -1,13 +1,18 @@
 import React from 'react';
-import SHOP_DATA from './data';
-import CollectionPreview from '../../components/CollectionPreview';
+import { Route, Switch } from 'react-router-dom';
+import CollectionOverview from '../../components/CollectionOverview';
+import CollectionPage from '../Collection';
 
-function Shop() {
+function Shop({ match }) {
   return (
     <div>
-      {SHOP_DATA.map(({ id, ...collectionProps }) => (
-        <CollectionPreview key={id} {...collectionProps} />
-      ))}
+      <Switch>
+        <Route
+          path={`${match.path}/:collectionId`}
+          component={CollectionPage}
+        />
+        <Route exact patch={`${match.path}`} component={CollectionOverview} />
+      </Switch>
     </div>
   );
 }
