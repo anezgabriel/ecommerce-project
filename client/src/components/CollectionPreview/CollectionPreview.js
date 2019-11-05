@@ -4,7 +4,6 @@ import './CollectionPreview.styles.scss';
 import CollectionItem from '../CollectionItem/CollectionItem';
 
 function CollectionPreview({ title, items }) {
-  console.log(items);
   return (
     <div className="collection-preview">
       <Link className="title" to={`/shop/${title.toLowerCase()}`}>

@@ -1,5 +1,6 @@
 import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
+import axios from 'axios';
 import icon from '../../assets/crwn.ico';
 
 function StripeButton({ price }) {
@@ -7,8 +8,20 @@ function StripeButton({ price }) {
   const publishableKey = 'pk_test_RA7ziNpKZTWi5M336XAqOSLd00cAnNORZb';
 
   const onToken = token => {
-    console.log(token);
-    alert('Payment Succesfull');
+    axios({
+      url: 'payment',
+      method: 'post',
+      data: {
+        token,
+        amount: priceForStripe
+      }
+    })
+      .then(res => {
+        alert('Payment was Succesfull');
+      })
+      .catch(err => {
+        console.log('err', err);
+      });
   };
 
   return (
